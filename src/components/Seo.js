@@ -8,7 +8,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import * as React from 'react'
 
-// eslint-disable-next-line react/prop-types
 function Seo({ description, title, children }) {
   const { site } = useStaticQuery(
     graphql`

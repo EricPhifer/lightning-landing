@@ -4,13 +4,21 @@
 module.exports = {
   siteMetadata: {
     title: `Lightning Bundle Template`,
-    siteUrl: `https://www.yourdomain.tld`
+    description: 'A template for productized website builds.',
+    author: 'Phifer Web Solutions',
+    siteUrl: `https://ericphifer.com/templates/lightning-bundle`
   },
-  plugins: [{
+  plugins: [
+    "gatsby-plugin-image", 
+    "gatsby-plugin-sharp", 
+    "gatsby-transformer-sharp", 
+    "gatsby-plugin-styled-components", 
+    "gatsby-plugin-sitemap",
+    {
     resolve: 'gatsby-source-sanity',
     options: {
       "projectId": "kanibl7m",
       "dataset": "production"
     }
-  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-styled-components", "gatsby-plugin-sitemap"]
-};
+  }, 
+]};
