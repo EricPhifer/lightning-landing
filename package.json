@@ -12,12 +12,16 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@portabletext/react": "^3.0.4",
     "babel-plugin-styled-components": "^2.1.4",
     "gatsby": "^5.11.0",
     "gatsby-plugin-image": "^3.11.0",
+    "gatsby-plugin-sanity-image": "^0.13.4",
     "gatsby-plugin-sharp": "^5.11.0",
     "gatsby-plugin-sitemap": "^6.11.0",
     "gatsby-plugin-styled-components": "^6.11.0",
@@ -26,6 +30,18 @@
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
     "styled-components": "^6.0.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.47.0",
+    "eslint-config-wesbos": "^3.2.3",
+    "prettier": "^2.8.8",
+    "typescript": "^4.9.5"
+  },
+  "eslintConfig": {
+    "extends": [
+      "wesbos"
+    ]
   }
 }
