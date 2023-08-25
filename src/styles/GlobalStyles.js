@@ -78,6 +78,8 @@ const GlobalStyles = createGlobalStyle`
     --orange: #EF8E1C;
     --green: #50A000;
     --blue: #1777BE;
+    --ctaback: #1777BE;
+    --ctafore: #fff;
   }
   html {
     overflow-x: hidden;

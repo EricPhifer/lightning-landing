@@ -48,14 +48,18 @@ const Nav = styled.nav`
 `
 
 const Img = styled(Link)`
-  width: 25rem;
-  margin: 1rem;
+  width: 10rem;
+  height: 100%;
+  margin: 0 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 0.5rem;
+  img {
+    height: 90%;
+  }
   @media only screen and (max-width: 815px) {
-    width: 5rem;
+    width: 7rem;
   }
 `
 
@@ -91,7 +95,7 @@ const Mobile = styled.div`
   }
 `
 
-const MenuToggle = styled.div`
+const MenuToggle = styled.label`
   display: flex;
   flex-direction: column;
   position: fixed;

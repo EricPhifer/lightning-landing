@@ -1,13 +1,19 @@
 import { graphql, useStaticQuery } from 'gatsby'
-// eslint-disable-next-line
-import SanityImage from 'gatsby-plugin-sanity-image'
 import * as React from 'react'
 import styled from 'styled-components'
+import Cta from './Cta'
 
 const Header = styled.header`
   height: 100%;
   position: relative;
   z-index: 0;
+  // optional
+  background-image: linear-gradient(
+    to bottom,
+    var(--white),
+    var(--gray),
+    var(--black)
+  );
   img {
     position: absolute;
     @media only screen and (max-height: 400px) {
@@ -22,19 +28,15 @@ const Header = styled.header`
 
 const Container = styled.div`
   width: 100%;
-  height: 90%;
-  position: absolute;
+  height: 100%;
+  position: relative;
   display: flex;
   flex-flow: column wrap;
-  justify-content: end;
-  align-items: end;
+  justify-content: center;
+  align-items: center;
   color: var(--white);
-  text-align: right;
+  text-align: center;
   z-index: 10;
-  h1,
-  h2 {
-    padding: 0 2rem;
-  }
   // Mobile view
   @media only screen and (max-width: 750px) {
     height: 90%;
@@ -45,29 +47,13 @@ const Container = styled.div`
 `
 
 const Title = styled.h1`
-  margin: 0;
-  font-family: 'Bodoni 72 Smallcaps';
   font-size: 8rem;
   line-height: 1;
-  text-shadow: 0.1rem 0 0 var(--darkgray), -0.1rem 0 0 var(--darkgray),
-    0 0.1rem 0 var(--darkgray), 0 -0.1rem 0 var(--darkgray);
-  .kinna {
-    font-family: 'Sarina';
-    font-size: 14rem;
-    @media only screen and (max-width: 750px) {
-      font-size: 12rem;
-    }
-    @media only screen and (max-width: 615px) {
-      font-size: 10rem;
-    }
-    @media only screen and (max-width: 500px) {
-      font-size: 6rem;
-    }
-  }
+  text-shadow: 0.1rem 0 0 var(--gray), -0.1rem 0 0 var(--gray),
+    0 0.1rem 0 var(--gray), 0 -0.1rem 0 var(--gray);
   // Mobile view
   @media only screen and (max-width: 750px) {
     font-size: 6rem;
-    margin-bottom: 3rem;
   }
   @media only screen and (max-width: 615px) {
     font-size: 5rem;
@@ -79,18 +65,14 @@ const Title = styled.h1`
   @media only screen and (max-height: 600px) {
     font-size: 3.75rem;
     margin: 0;
-    .kinna {
-      font-size: 7.5rem;
-    }
   }
 `
 
 const Motto = styled.h2`
   margin: 0;
-  font-family: 'Bodoni 72 Smallcaps';
   font-size: 3.5rem;
-  text-shadow: 0.1rem 0 0 var(--darkgray), -0.1rem 0 0 var(--darkgray),
-    0 0.1rem 0 var(--darkgray), 0 -0.1rem 0 var(--darkgray);
+  text-shadow: 0.1rem 0 0 var(--gray), -0.1rem 0 0 var(--gray),
+    0 0.1rem 0 var(--gray), 0 -0.1rem 0 var(--gray);
   .address {
     font-size: 3rem;
     @media only screen and (max-width: 615px) {
@@ -110,9 +92,6 @@ const Motto = styled.h2`
   // Landscape view
   @media only screen and (max-height: 600px) {
     font-size: 2rem;
-    .address {
-      font-size: 2rem;
-    }
   }
 `
 
@@ -141,7 +120,7 @@ export default function StoryHero() {
     <>
       {nodes.map(node => (
         <Header key={node.id}>
-          {node.image ? (
+          {/* {node.image ? (
             <SanityImage
               {...node.image}
               alt={node.alt}
@@ -155,10 +134,11 @@ export default function StoryHero() {
             />
           ) : (
             <div />
-          )}
+          )} */}
           <Container>
             <Title>{node.title}</Title>
             <Motto>{node.tagline}</Motto>
+            <Cta />
           </Container>
         </Header>
       ))}
