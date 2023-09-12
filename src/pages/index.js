@@ -12,7 +12,6 @@ import Plan from '../components/Plan'
 import PlanWithImage from '../components/PlanWithImage'
 import SectionWithLink from '../components/SectionWithLink'
 import Sections from '../components/Sections'
-import Social from '../components/Social'
 import Testimonials from '../components/Testimonials'
 // Contact form
 import useContact from '../utils/useContact'
@@ -345,13 +344,6 @@ export default function IndexPage() {
             <SectionWithLink />
           </WhiteSpace>
         </DarkBlock>
-        <LightBlock>
-          <WhiteSpace>
-            <H2 id="Social">Social Media</H2>
-            <HR />
-            <Social />
-          </WhiteSpace>
-        </LightBlock>
       </Main>
     </>
   )
