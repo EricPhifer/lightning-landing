@@ -81,8 +81,8 @@ const StepNum = styled.p`
   background-color: var(--blue);
   border: 0.7rem solid var(--blue);
   border-radius: 50%;
-  padding: 1.5rem;
-  font-size: 2.4rem;
+  padding: 1.77rem;
+  font-size: 3.4rem;
 `
 
 const StepWords = styled.div`

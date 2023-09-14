@@ -6,6 +6,7 @@ import Seo from '../components/Seo'
 import Hero from '../components/Hero'
 import Plan from '../components/Plan'
 // Contact form
+import BundleSubscription from '../components/BundleSubscription'
 import Clarity from '../components/Clarity'
 import Contentmanage from '../components/Contentmanage'
 import Cost from '../components/Cost'
@@ -98,6 +99,9 @@ const Form = styled.form`
     font-size: 5rem;
     text-align: center;
     margin-bottom: 3rem;
+    @media only screen and (max-width: 350px) {
+      font-size: 3rem;
+    }
   }
   button {
     align-self: end;
@@ -106,14 +110,15 @@ const Form = styled.form`
 
 const InlineField = styled.fieldset`
   width: 100%;
+  margin-bottom: 1rem;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(auto, 1fr));
-  gap: 0.5rem;
+  gap: 1rem;
   border: none;
-  margin-bottom: 2rem;
   input {
+    width: 100%;
     padding: 1rem;
-    margin: 0 0.5rem;
     border: 0.2rem inset var(--lightgray);
     border-radius: 1.5rem;
     background: transparent;
@@ -124,9 +129,6 @@ const InlineField = styled.fieldset`
   }
   @media only screen and (max-height: 750px) {
     margin-bottom: 1rem;
-    input {
-      font-size: 1.25rem;
-    }
     a,
     button {
       font-size: 2.5rem;
@@ -138,18 +140,20 @@ const InlineField = styled.fieldset`
 const FullField = styled.fieldset`
   display: flex;
   justify-content: center;
+  gap: 1;
+  padding: 0;
   border: none;
   input {
     width: 100%;
     padding: 1rem;
-    margin: 0 0.5rem;
+    margin-bottom: 1rem;
     border: 0.2rem inset var(--lightgray);
     border-radius: 1.5rem;
     background: transparent;
   }
   textarea {
     width: 100%;
-    margin-left: 0.5rem;
+    margin-bottom: 1rem;
     padding: 1rem;
     border: 0.2rem inset var(--lightgray);
     border-radius: 1.5rem;
@@ -255,6 +259,7 @@ export default function IndexPage() {
               No worries! We will contact you when new bundles come out that
               include more website features:
             </Paragraph>
+            <BundleSubscription />
           </WhiteSpace>
         </LightBlock>
 

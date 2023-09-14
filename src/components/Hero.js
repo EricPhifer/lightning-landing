@@ -1,3 +1,4 @@
+// import MuxPlayer from '@mux/mux-player-react'
 import { graphql, useStaticQuery } from 'gatsby'
 import SanityImage from 'gatsby-plugin-sanity-image'
 import * as React from 'react'
@@ -211,6 +212,13 @@ export default function StoryHero() {
           title
           source
           tagline
+          herocall
+          video {
+            asset {
+              playbackId
+              assetId
+            }
+          }
           image {
             asset {
               id
@@ -246,7 +254,14 @@ export default function StoryHero() {
           <Container>
             <Motto>{node.tagline}</Motto>
             <VideoContainer>
-              <div />
+              {/* <MuxPlayer
+                streamType="on-demand"
+                playbackId={node.video.asset.playbackId}
+                metadata={{
+                  video_id: `${node.video.asset.assetId}`,
+                  video_title: `Lightning Bundle Introduction`,
+                }}
+              /> */}
             </VideoContainer>
           </Container>
           <HeroesCall
@@ -254,7 +269,7 @@ export default function StoryHero() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Apply for a simple, clear website <PiCaretRightBold />
+            {node.herocall} <PiCaretRightBold />
           </HeroesCall>
         </Header>
       ))}
