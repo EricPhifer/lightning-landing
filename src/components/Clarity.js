@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Cta from './Cta'
 
 const Section = styled.section`
+  max-width: 192rem;
   height: 100%;
   margin: 2rem 0;
   position: relative;
@@ -39,7 +40,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   p {
-    margin-bottom: 3rem;
     padding: 1rem 0;
     font-size: 2.4rem;
   }
@@ -59,7 +59,7 @@ const Container = styled.div`
 `
 
 const Title = styled.h3`
-  font-size: 4rem;
+  font-size: 3rem;
   text-shadow: 0.1rem 0 0 var(--gray), -0.1rem 0 0 var(--gray),
     0 0.1rem 0 var(--gray), 0 -0.1rem 0 var(--gray);
   @media only screen and (max-width: 500px) {
@@ -67,10 +67,10 @@ const Title = styled.h3`
   }
 `
 
-export default function SectionWithLink() {
-  const { sect } = useStaticQuery(graphql`
+export default function Clarity() {
+  const { clarity } = useStaticQuery(graphql`
     query {
-      sect: allSanitySectionwithlink {
+      clarity: allSanityClarity {
         nodes {
           id
           title
@@ -88,7 +88,7 @@ export default function SectionWithLink() {
       }
     }
   `)
-  const { nodes } = sect
+  const { nodes } = clarity
   return (
     <>
       {nodes.map(node => (
@@ -99,7 +99,7 @@ export default function SectionWithLink() {
               alt={node.alt}
               style={{
                 backgroundImage: 'fixed',
-                objectFit: 'cover',
+                objectFit: 'contain',
                 auto: 'format',
               }}
             />

@@ -2,7 +2,6 @@ import { PortableText, defaultComponents } from '@portabletext/react'
 import { graphql, useStaticQuery } from 'gatsby'
 import * as React from 'react'
 import styled from 'styled-components'
-import Cta from './Cta'
 
 const Section = styled.section`
   height: 100%;
@@ -23,11 +22,12 @@ const Section = styled.section`
 
 const Container = styled.div`
   width: 100%;
-  display: flex;
-  flex-flow: column wrap;
-  #cta {
-    justify-self: end;
-    align-self: end;
+  display: inline-flex;
+  justify-self: center;
+  align-self: center;
+  @media only screen and (max-width: 1080px) {
+    display: flex;
+    flex-flow: column wrap;
   }
   // Mobile view
   @media only screen and (max-width: 750px) {
@@ -41,6 +41,9 @@ const Container = styled.div`
 const Title = styled.h3`
   margin: 3rem 0;
   font-size: 5rem;
+  text-transform: uppercase;
+  letter-spacing: 2vmin;
+  text-align: center;
   text-shadow: 0.1rem 0 0 var(--gray), -0.1rem 0 0 var(--gray),
     0 0.1rem 0 var(--gray), 0 -0.1rem 0 var(--gray);
   @media only screen and (max-width: 900px) {
@@ -52,9 +55,14 @@ const Title = styled.h3`
 `
 
 const Step = styled.div`
-  margin: 2rem;
+  max-width: 33.33%;
+  margin: 0.2rem;
   display: inline-flex;
   align-items: center;
+  @media only screen and (max-width: 1080px) {
+    margin: 2rem 0.5rem;
+    max-width: 100%;
+  }
   @media only screen and (max-width: 625px) {
     margin-left: 0 !important;
   }
@@ -70,6 +78,7 @@ const StepNum = styled.p`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--blue);
   border: 0.7rem solid var(--blue);
   border-radius: 50%;
   padding: 1.5rem;
@@ -78,7 +87,9 @@ const StepNum = styled.p`
 
 const StepWords = styled.div`
   font-size: 2.4rem;
-
+  p {
+    font-size: 1.5rem;
+  }
   @media only screen and (max-width: 500px) {
     font-size: 2rem;
   }
@@ -109,10 +120,7 @@ export default function Plan() {
           <Container>
             {node.stepofplan
               .map(step => (
-                <Step
-                  style={{ marginLeft: `calc(5rem * ${step.stepnumber})` }}
-                  key={step._key}
-                >
+                <Step key={step._key}>
                   <StepNum>{step.stepnumber}</StepNum>
                   <StepWords>
                     <PortableText
@@ -123,7 +131,6 @@ export default function Plan() {
                 </Step>
               ))
               .sort()}
-            <Cta />
           </Container>
         </Section>
       ))}

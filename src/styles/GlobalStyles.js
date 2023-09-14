@@ -71,15 +71,29 @@ const GlobalStyles = createGlobalStyle`
 
   // Global Styles
   :root {
+    // Hero Gradient Colors
+    --red: #FF1F1F;
+    --orange: #FF8709;
+    --yellow: #FFB100;
+
+    // Base Colors
     --black: #272727;
-    --tan: #BBB094;
-    --white: #fff;
+    --white: #EBEBEB;
     --gray: #585858;
-    --orange: #EF8E1C;
+    --lightgray: #707070;
+
+    // Accent Colors
     --green: #50A000;
-    --blue: #1777BE;
-    --ctaback: #1777BE;
-    --ctafore: #fff;
+    --blue: #009ED8;
+
+    // Distance Variables: Hero
+    --img-left: 2rem;
+    --logo-top: 2rem;
+    --container-left: 4rem;
+    --container-top: calc(7rem + var(--logo-top));
+    --add-top-and-btn: calc(var(--logo-top) + 17.8rem);
+    --container-height: calc(100% - var(--add-top-and-btn));
+    --title-height: 15%;
   }
   html {
     overflow-x: hidden;

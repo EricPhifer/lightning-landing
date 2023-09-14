@@ -1,10 +1,10 @@
-import { Link, graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import * as React from 'react'
 import styled from 'styled-components'
 
 const CopyStyles = styled.footer`
   width: 100%;
-  height: 12rem;
+  height: 4rem;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -15,9 +15,7 @@ const CopyStyles = styled.footer`
   background-color: var(--black);
   font-weight: 600;
   color: white;
-  p {
-    padding: 0.25rem 2rem;
-  }
+
   a {
     color: lightsteelblue;
     &:hover {
@@ -25,23 +23,7 @@ const CopyStyles = styled.footer`
     }
   }
   @media only screen and (max-width: 330px) {
-    height: 15rem;
-  }
-`
-
-const List = styled.ul`
-  list-style-type: none;
-  display: inline-flex;
-`
-
-const Item = styled.li`
-  padding: 0.5rem;
-`
-
-const Anchor = styled(Link)`
-  color: var(--white);
-  &:hover {
-    color: var(--red);
+    height: 10rem;
   }
 `
 
@@ -51,6 +33,7 @@ export default function Copyright() {
       foot: allSanityFooter {
         nodes {
           id
+          title
         }
       }
     }
@@ -62,28 +45,8 @@ export default function Copyright() {
       {nodes.map(node => (
         <CopyStyles className="storybrand" key={node.id}>
           <p>
-            &copy; {new Date().getFullYear()} All Rights Reserved Amazing
-            Business
+            &copy; {new Date().getFullYear()} All Rights Reserved {node.title}
           </p>
-          <p>
-            Built by{' '}
-            <a
-              href="https://ericphifer.com/contact"
-              rel="noopener noreferrer"
-              target="__blank"
-            >
-              Phifer Web Solutions
-            </a>
-          </p>
-          <List>
-            <Item>
-              <Anchor to="/privacypolicy">Privacy Policy</Anchor>
-            </Item>
-            <Item> | </Item>
-            <Item>
-              <Anchor to="/termsconditions">Terms & Conditions</Anchor>
-            </Item>
-          </List>
         </CopyStyles>
       ))}
     </>

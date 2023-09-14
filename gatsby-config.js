@@ -17,14 +17,14 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: 'kanibl7m',
+        projectId: 'j826c1ve',
         dataset: 'production',
       },
     },
     {
       resolve: 'gatsby-plugin-sanity-image',
       options: {
-        projectId: 'kanibl7m',
+        projectId: 'j826c1ve',
         dataset: 'production',
       },
     },

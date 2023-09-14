@@ -3,27 +3,29 @@ import { graphql, useStaticQuery } from 'gatsby'
 import SanityImage from 'gatsby-plugin-sanity-image'
 import * as React from 'react'
 import styled from 'styled-components'
+import Cta from './Cta'
 
 const Section = styled.section`
+  max-width: 192rem;
   height: 100%;
+  margin: 2rem 0;
   position: relative;
   display: inline-flex;
-  align-items: center;
-  margin-top: 2rem;
   z-index: 0;
   img {
     width: 30rem;
     height: 30rem;
-    border-radius: 50%;
+    border-radius: 5rem;
+  }
+  #cta {
+    align-self: end;
   }
   @media only screen and (max-width: 900px) {
     display: flex;
-    flex-flow: column-reverse wrap;
-  }
-  @media only screen and (max-width: 340px) {
+    flex-flow: column wrap;
     img {
-      width: 26rem;
-      height: 26rem;
+      align-self: center;
+      margin-bottom: 2rem;
     }
   }
   // Landscape view
@@ -34,15 +36,20 @@ const Section = styled.section`
 
 const Container = styled.div`
   width: 100%;
+  margin-left: 4rem;
+  display: flex;
+  flex-direction: column;
   p {
-    padding: 0 5rem 1rem 0;
+    padding: 1rem 0;
     font-size: 2.4rem;
   }
   // Mobile view
+  @media only screen and (max-width: 900px) {
+    margin-left: 0;
+  }
   @media only screen and (max-width: 750px) {
     height: 90%;
     p {
-      padding: 0 0 1rem;
       font-size: 2rem;
     }
   }
@@ -52,9 +59,7 @@ const Container = styled.div`
 `
 
 const Title = styled.h3`
-  margin: 0;
-  padding: 2rem 0;
-  font-size: 4rem;
+  font-size: 3rem;
   text-shadow: 0.1rem 0 0 var(--gray), -0.1rem 0 0 var(--gray),
     0 0.1rem 0 var(--gray), 0 -0.1rem 0 var(--gray);
   @media only screen and (max-width: 500px) {
@@ -62,13 +67,39 @@ const Title = styled.h3`
   }
 `
 
-export default function Sections() {
-  const { sect } = useStaticQuery(graphql`
+const CostContainer = styled.div`
+  display: inline-flex;
+  align-self: center;
+  @media only screen and (max-width: 600px) {
+    display: flex;
+    flex-flow: column wrap;
+  }
+`
+
+const CostAmt = styled.p`
+  margin: 3rem 1rem 2rem;
+  padding: 2.5rem !important;
+  border: 0.3rem solid var(--white);
+  border-radius: 2rem;
+  background-color: var(--blue);
+  text-align: center;
+  font-size: 3rem !important;
+`
+
+const Or = styled.p`
+  align-self: center;
+`
+
+const Break = styled.br``
+
+export default function Cost() {
+  const { cost } = useStaticQuery(graphql`
     query {
-      sect: allSanitySection {
+      cost: allSanityCost {
         nodes {
           id
           title
+          link
           _rawContent
           alt
           source
@@ -82,31 +113,41 @@ export default function Sections() {
       }
     }
   `)
-  const { nodes } = sect
+  const { nodes } = cost
   return (
     <>
       {nodes.map(node => (
         <Section key={node.id}>
-          <Container>
-            <Title>{node.title}</Title>
-            <PortableText
-              value={node._rawContent}
-              components={defaultComponents}
-            />
-          </Container>
           {node.image ? (
             <SanityImage
               {...node.image}
               alt={node.alt}
               style={{
                 backgroundImage: 'fixed',
-                objectFit: 'cover',
+                objectFit: 'contain',
                 auto: 'format',
               }}
             />
           ) : (
             <div />
           )}
+          <Container>
+            <Title>{node.title}</Title>
+            <CostContainer>
+              <CostAmt>
+                $3,497 <Break /> one-time
+              </CostAmt>
+              <Or>or</Or>
+              <CostAmt>
+                $697 <Break /> for 6 mo.
+              </CostAmt>
+            </CostContainer>
+            <PortableText
+              value={node._rawContent}
+              components={defaultComponents}
+            />
+            <Cta />
+          </Container>
         </Section>
       ))}
     </>

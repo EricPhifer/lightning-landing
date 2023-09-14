@@ -1,36 +1,31 @@
 import * as React from 'react'
+import { PiCaretRight } from 'react-icons/pi'
 import styled from 'styled-components'
 import Seo from '../components/Seo'
 // Hero
-import About from '../components/About'
-import EventsNP from '../components/EventsNP'
 import Hero from '../components/Hero'
-import Location from '../components/Location'
-import Map from '../components/Map'
-import Partners from '../components/PartnersNP'
 import Plan from '../components/Plan'
-import PlanWithImage from '../components/PlanWithImage'
-import SectionWithLink from '../components/SectionWithLink'
-import Sections from '../components/Sections'
-import Testimonials from '../components/Testimonials'
 // Contact form
+import Clarity from '../components/Clarity'
+import Contentmanage from '../components/Contentmanage'
+import Cost from '../components/Cost'
+import Maintenance from '../components/Maintenance'
+import Problem from '../components/Problem'
+import Should from '../components/Should'
+import ShouldNot from '../components/ShouldNot'
 import useContact from '../utils/useContact'
 import useForm from '../utils/useForm'
 
 const HeroStyles = styled.div`
   height: 100vh;
-  margin-top: 4rem;
 `
 
 const Main = styled.main`
   width: 100vw;
   height: 100%;
-  padding-bottom: 12rem;
-  @media only screen and (max-width: 500px) {
-    width: 98vw;
-  }
-  @media only screen and (max-height: 600px) {
-    width: 96vw;
+  padding-bottom: 4rem;
+  @media only screen and (max-width: 330px) {
+    padding-bottom: 10rem;
   }
 `
 
@@ -81,21 +76,6 @@ const WhiteSpace = styled.div`
   }
 `
 
-const H2 = styled.h2`
-  display: block;
-  padding-top: 10rem;
-  margin-top: -10rem;
-  font-size: 5rem;
-  font-variant: small-caps;
-  @media only screen and (max-width: 330px) {
-    font-size: 4rem;
-  }
-`
-
-const HR = styled.hr`
-  border: 0.5rem solid var(--orange);
-`
-
 const Form = styled.form`
   max-width: 80rem;
   width: 100%;
@@ -108,7 +88,10 @@ const Form = styled.form`
   }
   input,
   textarea {
-    font-size: 1.75rem;
+    font-size: 2.5rem;
+    &:focus {
+      border: 0.2rem dotted var(--gray);
+    }
   }
   legend {
     width: 98%;
@@ -131,8 +114,8 @@ const InlineField = styled.fieldset`
   input {
     padding: 1rem;
     margin: 0 0.5rem;
-    border: none;
-    border-bottom: 0.2rem inset var(--gray);
+    border: 0.2rem inset var(--lightgray);
+    border-radius: 1.5rem;
     background: transparent;
   }
   @media only screen and (max-width: 900px) {
@@ -146,7 +129,7 @@ const InlineField = styled.fieldset`
     }
     a,
     button {
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
   }
@@ -160,16 +143,16 @@ const FullField = styled.fieldset`
     width: 100%;
     padding: 1rem;
     margin: 0 0.5rem;
-    border: none;
-    border-bottom: 0.2rem inset var(--gray);
+    border: 0.2rem inset var(--lightgray);
+    border-radius: 1.5rem;
     background: transparent;
   }
   textarea {
     width: 100%;
     margin-left: 0.5rem;
     padding: 1rem;
-    border: none;
-    border-bottom: 0.2rem inset var(--gray);
+    border: 0.2rem inset var(--lightgray);
+    border-radius: 1.5rem;
     background: transparent;
   }
 `
@@ -180,20 +163,28 @@ const Submit = styled.button`
   padding: 1.5rem;
   background: var(--blue);
   color: var(--white);
+  border: 0.2rem solid var(--white);
   border-radius: 1rem;
-  font-size: 1.85rem;
+  font-size: 2.5rem;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &:hover {
     background-color: var(--white);
     border: 0.2rem solid var(--blue);
     color: var(--blue);
   }
   &:focus {
-    border: 0.2rem dotted var(--white);
+    border: 0.2rem dotted var(--gray);
   }
   @media only screen and (max-width: 900px) {
     margin-bottom: 2rem;
   }
+`
+
+const Paragraph = styled.p`
+  font-size: 3rem;
 `
 
 export default function IndexPage() {
@@ -216,66 +207,105 @@ export default function IndexPage() {
         <Hero />
       </HeroStyles>
       <Main>
-        <LightBlock>
-          <WhiteSpace>
-            <H2 id="section">About</H2>
-            <HR />
-            <About />
-          </WhiteSpace>
-        </LightBlock>
         <DarkBlock>
           <WhiteSpace>
-            <H2 id="testimonials">Testimonials</H2>
-            <HR />
-            <Testimonials />
+            <Plan />
           </WhiteSpace>
         </DarkBlock>
+
         <LightBlock>
           <WhiteSpace>
-            <H2 id="contact">Contact Us</H2>
-            <HR />
+            <Problem />
+          </WhiteSpace>
+        </LightBlock>
+
+        <DarkBlock>
+          <WhiteSpace>
+            <Clarity />
+          </WhiteSpace>
+        </DarkBlock>
+
+        <LightBlock>
+          <WhiteSpace>
+            <Maintenance />
+          </WhiteSpace>
+        </LightBlock>
+
+        <DarkBlock>
+          <WhiteSpace>
+            <Cost />
+          </WhiteSpace>
+        </DarkBlock>
+
+        <LightBlock>
+          <WhiteSpace>
+            <Should />
+          </WhiteSpace>
+        </LightBlock>
+
+        <DarkBlock>
+          <WhiteSpace>
+            <ShouldNot />
+          </WhiteSpace>
+        </DarkBlock>
+
+        <LightBlock>
+          <WhiteSpace>
+            <Paragraph>
+              No worries! We will contact you when new bundles come out that
+              include more website features:
+            </Paragraph>
+          </WhiteSpace>
+        </LightBlock>
+
+        <DarkBlock>
+          <WhiteSpace>
+            <Contentmanage />
+          </WhiteSpace>
+        </DarkBlock>
+
+        <LightBlock>
+          <WhiteSpace>
             <Form
               method="post"
               netlify-honeypot="bot-field"
               data-netlify="true"
-              name="standard-contact"
+              name="contact"
             >
               <input type="hidden" name="bot-field" />
               <input type="hidden" name="form-name" value="contact" />
-              <FullField className="nameEmail">
-                <label htmlFor="name">Name</label>
+              <legend>More Questions? We're happy to help.</legend>
+              <InlineField className="emailPhone">
+                <label htmlFor="contactname">Contact Name</label>
                 <input
                   type="text"
-                  name="name"
-                  id="name"
-                  value={values.name}
+                  name="contactname"
+                  id="contactname"
+                  value={values.contactname}
                   onChange={updateValue}
-                  placeholder="Name"
-                  className="required"
+                  placeholder="Contact Name"
                 />
-              </FullField>
-              <InlineField className="emailPhone">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="businessname">Business Name</label>
+                <input
+                  type="text"
+                  name="businessname"
+                  id="businessname"
+                  value={values.phone}
+                  onChange={updateValue}
+                  placeholder="Business Name"
+                />
+              </InlineField>
+              <FullField className="nameEmail">
+                <label htmlFor="email">Email Address</label>
                 <input
                   type="text"
                   name="email"
                   id="email"
                   value={values.email}
                   onChange={updateValue}
-                  placeholder="Email"
-                  className="required"
+                  placeholder="Email Address"
                 />
-                <label htmlFor="phone">Phone</label>
-                <input
-                  type="text"
-                  name="phone"
-                  id="phone"
-                  value={values.phone}
-                  onChange={updateValue}
-                  placeholder="Phone"
-                  className="required"
-                />
-              </InlineField>
+              </FullField>
               <FullField className="message">
                 <label htmlFor="message">Message</label>
                 <textarea
@@ -283,67 +313,16 @@ export default function IndexPage() {
                   id="message"
                   value={values.message}
                   onChange={updateValue}
-                  rows="7"
-                  placeholder="What is your #1 need?"
-                  className="required"
+                  rows="3"
+                  placeholder="Your Question"
                 />
               </FullField>
               <Submit type="submit" value="Submit">
-                Submit
+                Submit <PiCaretRight />
               </Submit>
             </Form>
           </WhiteSpace>
         </LightBlock>
-        <DarkBlock>
-          <WhiteSpace>
-            <H2 id="volunteer">Get Involved</H2>
-            <HR />
-            <EventsNP />
-          </WhiteSpace>
-        </DarkBlock>
-        <LightBlock>
-          <WhiteSpace>
-            <H2 id="location">Location</H2>
-            <HR />
-            <Location />
-            <Map />
-          </WhiteSpace>
-        </LightBlock>
-        <DarkBlock>
-          <WhiteSpace>
-            <H2 id="partners">Partners</H2>
-            <HR />
-            <Partners />
-          </WhiteSpace>
-        </DarkBlock>
-        <LightBlock>
-          <WhiteSpace>
-            <H2 id="plan">Plan</H2>
-            <HR />
-            <Plan />
-          </WhiteSpace>
-        </LightBlock>
-        <DarkBlock>
-          <WhiteSpace>
-            <H2 id="planwithimage">Plan With Image</H2>
-            <HR />
-            <PlanWithImage />
-          </WhiteSpace>
-        </DarkBlock>
-        <LightBlock>
-          <WhiteSpace>
-            <H2 id="sections">Section</H2>
-            <HR />
-            <Sections />
-          </WhiteSpace>
-        </LightBlock>
-        <DarkBlock>
-          <WhiteSpace>
-            <H2 id="partners">Section With Link</H2>
-            <HR />
-            <SectionWithLink />
-          </WhiteSpace>
-        </DarkBlock>
       </Main>
     </>
   )

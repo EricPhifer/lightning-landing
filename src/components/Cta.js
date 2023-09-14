@@ -1,33 +1,56 @@
+import { graphql, useStaticQuery } from 'gatsby'
 import * as React from 'react'
 import { PiCaretRightBold } from 'react-icons/pi'
 import styled from 'styled-components'
 
 const Buttonesque = styled.a`
-  width: 20rem;
-  margin-top: 4rem;
-  background-color: var(--ctaback);
-  color: var(--ctafore);
+  max-width: 20rem;
+  margin-top: 2rem;
+  background-color: var(--blue);
+  color: var(--white);
   padding: 1.5rem 3rem;
   font-size: 2.4rem;
+  border: 0.7rem solid var(--white);
   border-radius: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  svg {
+    font-size: 3rem;
+  }
   &:hover {
-    background-color: var(--ctafore);
-    color: var(--ctaback);
+    background-color: var(--white);
+    border: 0.7rem solid var(--blue);
+    color: var(--blue);
   }
 `
 
-export default function Map() {
+export default function Cta() {
+  const { call } = useStaticQuery(graphql`
+    query {
+      call: allSanityClarity {
+        nodes {
+          id
+          cta
+          link
+        }
+      }
+    }
+  `)
+  const { nodes } = call
   return (
-    <Buttonesque
-      href="https://ericphifer.com/contact"
-      rel="noopener noreferrer"
-      target="_blank"
-      id="cta"
-    >
-      Give Now <PiCaretRightBold />
-    </Buttonesque>
+    <>
+      {nodes.map(cta => (
+        <Buttonesque
+          href={cta.link}
+          rel="noopener noreferrer"
+          target="_blank"
+          id="cta"
+          key={nodes.id}
+        >
+          {cta.cta} <PiCaretRightBold />
+        </Buttonesque>
+      ))}
+    </>
   )
 }
