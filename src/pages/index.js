@@ -189,9 +189,9 @@ const Paragraph = styled.p`
 
 export default function IndexPage() {
   const { values, updateValue } = useForm({
-    name: '',
+    contactname: '',
+    businessname: '',
     email: '',
-    phone: '',
     message: '',
   })
   const { contact, error, loading, errMessage, submitContact } = useContact({
@@ -290,7 +290,7 @@ export default function IndexPage() {
                   type="text"
                   name="businessname"
                   id="businessname"
-                  value={values.phone}
+                  value={values.businessname}
                   onChange={updateValue}
                   placeholder="Business Name"
                 />
