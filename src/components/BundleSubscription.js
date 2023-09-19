@@ -57,6 +57,7 @@ const Form = styled.form`
   transition: 0.5s all ease;
   display: flex;
   flex-flow: column nowrap;
+  align-self: center;
   label {
     display: none;
   }

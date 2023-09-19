@@ -1,4 +1,4 @@
-// import MuxPlayer from '@mux/mux-player-react'
+import MuxPlayer from '@mux/mux-player-react'
 import { graphql, useStaticQuery } from 'gatsby'
 import SanityImage from 'gatsby-plugin-sanity-image'
 import * as React from 'react'
@@ -142,7 +142,6 @@ const VideoContainer = styled.div`
   height 70%;
   min-height: 70%;
   margin: 2rem 0;
-  border: 1px dashed var(--black);
   border-radius: 1rem;
   @media only screen and (max-width: 525px) {
     min-height: 25rem;
@@ -172,6 +171,7 @@ const HeroesCall = styled.a`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 100;
   svg {
     font-size: 3rem;
   }
@@ -253,16 +253,20 @@ export default function StoryHero() {
           </LogoContainer>
           <Container>
             <Motto>{node.tagline}</Motto>
-            <VideoContainer>
-              {/* <MuxPlayer
-                streamType="on-demand"
-                playbackId={node.video.asset.playbackId}
-                metadata={{
-                  video_id: `${node.video.asset.assetId}`,
-                  video_title: `Lightning Bundle Introduction`,
-                }}
-              /> */}
-            </VideoContainer>
+            {node.video.asset ? (
+              <VideoContainer>
+                <MuxPlayer
+                  streamType="on-demand"
+                  playbackId={node.video.asset.playbackId}
+                  metadata={{
+                    video_id: `${node.video.asset.assetId}`,
+                    video_title: `Lightning Bundle Introduction`,
+                  }}
+                />
+              </VideoContainer>
+            ) : (
+              <VideoContainer />
+            )}
           </Container>
           <HeroesCall
             href="https://ericphifer.com/bundles/lightning/intake"

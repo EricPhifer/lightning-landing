@@ -17,7 +17,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@mux/mux-player-react": "^1.7.1",
+    "@mux/mux-player-react": "^1.14.2",
     "@portabletext/react": "^3.0.4",
     "babel-plugin-styled-components": "^2.1.4",
     "gatsby": "^5.11.0",

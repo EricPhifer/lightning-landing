@@ -10,6 +10,7 @@ const Buttonesque = styled.a`
   color: var(--white);
   padding: 1.5rem 3rem;
   font-size: 2.4rem;
+  position: relative;
   border: 0.7rem solid var(--white);
   border-radius: 1rem;
   display: flex;

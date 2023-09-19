@@ -3,10 +3,10 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Lightning Bundle Template`,
-    description: 'A template for productized website builds.',
+    title: `Lightning Bundle`,
+    description: 'Clear, simple websites for non-profits and small businesses.',
     author: 'Phifer Web Solutions',
-    siteUrl: `https://ericphifer.com/templates/lightning-bundle`,
+    siteUrl: `https://lightningbundle.com`,
   },
   plugins: [
     'gatsby-plugin-image',
