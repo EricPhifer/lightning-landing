@@ -18,7 +18,10 @@ import useContact from '../utils/useContact'
 import useForm from '../utils/useForm'
 
 const HeroStyles = styled.div`
-  height: 100vh;
+  height: 100dvh;
+  @media only screen and (max-width: 500px) {
+    height: 80dvh;
+  }
 `
 
 const Main = styled.main`

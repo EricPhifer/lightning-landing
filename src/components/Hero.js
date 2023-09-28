@@ -26,7 +26,7 @@ const Header = styled.header`
 
 const LogoContainer = styled.section`
   width: 100vw;
-  height: 100%;
+  height: var(--logo-top);
   position: absolute;
   top: 0;
   display: flex;
@@ -39,137 +39,108 @@ const LogoContainer = styled.section`
     align-self: center;
     margin-left: var(--img-left);
   }
-  // Mobile view
-  @media only screen and (max-width: 850px) {
-    height: var(--title-height);
-    top: 2rem;
-  }
-  @media only screen and (max-height: 500px) {
-    top: 0.2rem;
+
+  // Landscape View
+  @media only screen and (max-height: 450px) {
+    width: 10vw;
+    height: 100%;
+    img {
+      display: none;
+    }
   }
 `
 
 const Title = styled.h1`
   width: calc(80% - var(--img-left));
   margin: 0;
-  margin-top: var(--logo-top);
-  font-size: 7vmin;
+  font-size: 7vh;
   font-weight: 300;
   text-transform: uppercase;
-  align-self: flex-start;
+  align-self: center;
   line-height: 1;
-  letter-spacing: 2vmin;
   text-shadow: 0.1rem 0 0 var(--gray), -0.1rem 0 0 var(--gray),
     0 0.1rem 0 var(--gray), 0 -0.1rem 0 var(--gray);
 
-  // Mobile view
-  @media only screen and (max-width: 500px) {
-    font-size: 4.25rem;
-  }
-  @media only screen and (max-width: 370px) {
-    font-size: 3.25rem;
-  }
-
-  // Landscape view
-  @media only screen and (max-height: 500px) {
-    margin-top: 1rem;
-    font-size: 4.5rem;
-  }
-
-  // Tall view
-  @media only screen and (min-height: 893px) and (min-width: 600px) {
-    font-size: 6rem;
-    letter-spacing: 1.9rem;
-  }
-  @media only screen and (min-height: 893px) and (min-width: 851px) and (max-width: 1025px) {
-    font-size: 5rem;
-    letter-spacing: 1.5rem;
+  // Landscape View
+  @media only screen and (max-height: 450px) {
+    writing-mode: sideways-lr;
   }
 `
 
 const Container = styled.section`
-  width: 75%;
-  height: var(--container-height);
+  width: 100%;
+  height: 75dvh;
   position: absolute;
-  top: var(--container-top);
+  top: var(--logo-top);
   right: 0;
   display: flex;
   flex-flow: column wrap;
-  justify-content: center;
+  align-items: center;
   color: var(--white);
-  text-align: center;
   z-index: 10;
-  // Mobile view
-  @media only screen and (max-width: 850px) {
-    width: calc(100% - var(--container-left));
-    height: calc(80% - 10.4rem);
-    top: calc(5% + var(--title-height));
-    left: var(--container-left);
+  // Mobile View
+  @media only screen and (max-width: 500px) {
+    height: 55dvh;
   }
-  @media only screen and (max-width: 525px) {
-    left: calc(var(--container-left) / 2);
-  }
-
   // Landscape View
-  @media only screen and (max-height: 500px) {
-    height: calc(80% - 6.7rem);
-  }
-  @media only screen and (max-height: 500px) and (min-width: 851px) {
-    top: 6rem;
+  @media only screen and (max-height: 450px) {
+    height: 100%;
+    width: 75vw;
+    top: 10rem;
+    left: 17rem;
+    margin-top: -10rem;
+    margin-left: -10rem;
   }
 `
 
 const Motto = styled.h2`
+  height: 10dvh;
   margin: 0;
-  margin-top: 2rem;
-  padding-right: 2rem;
-  font-size: 3.5vmin;
+  padding: 2rem 5rem;
+  font-size: 3vh;
   text-align: left;
   // Mobile view
   @media only screen and (max-width: 500px) {
-    font-size: 2rem;
+    padding: 2rem;
   }
   // Landscape view
-  @media only screen and (max-height: 500px) {
-    margin-top: 0;
-    font-size: 1.65rem;
+  @media only screen and (max-height: 650px) {
+    display: none;
   }
 `
 
 const VideoContainer = styled.div`
-  width: 90%;
-  max-height: 40rem;
-  height 70%;
-  min-height: 70%;
-  margin: 2rem 0;
-  border-radius: 1rem;
-  @media only screen and (max-width: 525px) {
-    min-height: 25rem;
+  height: calc(65dvh - 4rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mux-player {
+    object-fit: contain;
+    max-width: 80rem;
     width: 100%;
+    height: auto;
+  }
+  // Mobile View
+  @media only screen and (max-width: 500px) {
+    height: calc(45dvh - 4rem);
   }
   // Landscape View
-  @media only screen and (max-height: 540px) {
-    min-height: 67%;
-    margin: 1rem 0;
-  }
-  @media only screen and (max-height: 305px) {
-    min-height: 11rem;
+  @media only screen and (max-height: 630px) {
+    height: 100%;
   }
 `
 
 const HeroesCall = styled.a`
-  margin-top: 2rem;
+  width: 100%;
+  height: var(--call-btn);
   background-color: var(--blue);
   color: var(--white);
   padding: 1.5rem 3rem;
   font-size: 2.4rem;
-  border: 0.7rem solid var(--white);
-  border-radius: 1rem;
   position: absolute;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   z-index: 100;
   svg {
@@ -177,19 +148,12 @@ const HeroesCall = styled.a`
   }
   &:hover {
     background-color: var(--white);
-    border: 1rem solid var(--blue);
     color: var(--blue);
   }
-  @media only screen and (max-width: 525px) {
-    right: 1rem;
-  }
-  @media only screen and (max-width: 500px) {
-    width: 80%;
-  }
   @media only screen and (max-width: 400px) {
-    width: 90%;
     font-size: 1.8rem;
   }
+
   // Landscape View
   @media only screen and (max-height: 540px) {
     padding: 1rem 2rem;
@@ -198,7 +162,15 @@ const HeroesCall = styled.a`
   @media only screen and (max-height: 400px) {
     padding: 0.5rem 1rem;
     font-size: 1.65rem;
-    border: 0.3rem solid var(--white);
+  }
+  @media only screen and (max-height: 450px) {
+    width: 10vw;
+    height: 100%;
+    right: 0;
+    writing-mode: sideways-lr;
+    svg {
+      display: none;
+    }
   }
 `
 
@@ -241,7 +213,7 @@ export default function StoryHero() {
                 alt={node.alt}
                 style={{
                   width: '20%',
-                  height: '90%',
+                  height: '75%',
                   objectFit: 'contain',
                   auto: 'format',
                 }}
@@ -253,20 +225,16 @@ export default function StoryHero() {
           </LogoContainer>
           <Container>
             <Motto>{node.tagline}</Motto>
-            {node.video.asset ? (
-              <VideoContainer>
-                <MuxPlayer
-                  streamType="on-demand"
-                  playbackId={node.video.asset.playbackId}
-                  metadata={{
-                    video_id: `${node.video.asset.assetId}`,
-                    video_title: `Lightning Bundle Introduction`,
-                  }}
-                />
-              </VideoContainer>
-            ) : (
-              <VideoContainer />
-            )}
+            <VideoContainer>
+              <MuxPlayer
+                streamType="on-demand"
+                playbackId="VOztAexD9KmGXKx5jfxPkp8gIvGfNtjIN39vCTXF01Eg"
+                metadataVideoTitle="Lightning Bundle Video"
+                primaryColor="#FFFFFF"
+                secondaryColor="#000000"
+                poster="https://image.mux.com/VOztAexD9KmGXKx5jfxPkp8gIvGfNtjIN39vCTXF01Eg/thumbnail.png?time=66"
+              />
+            </VideoContainer>
           </Container>
           <HeroesCall
             href="https://ericphifer.com/bundles/lightning/intake"

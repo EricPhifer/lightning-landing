@@ -88,9 +88,10 @@ const GlobalStyles = createGlobalStyle`
 
     // Distance Variables: Hero
     --img-left: 2rem;
-    --logo-top: 2rem;
+    --logo-top: 15dvh;
+    --call-btn: 10dvh;
     --container-left: 4rem;
-    --container-top: calc(7rem + var(--logo-top));
+    --container-top: calc(var(--call-btn) + var(--logo-top));
     --add-top-and-btn: calc(var(--logo-top) + 17.8rem);
     --container-height: calc(100% - var(--add-top-and-btn));
     --title-height: 15%;
