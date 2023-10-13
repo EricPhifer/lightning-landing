@@ -34,7 +34,14 @@ module.exports = {
         trackPageViews: true,
         events: true,
         eventsGlobal: 'sa_event',
-        ignorePages: ['pathname'],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://lightningbundle.com',
+        sitemap: 'https://lightningbundle.com/sitemap/sitemap-index.xml',
+        policy: [{ userAgent: '*' }],
       },
     },
   ],

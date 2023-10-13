@@ -22,6 +22,7 @@
     "babel-plugin-styled-components": "^2.1.4",
     "gatsby": "^5.11.0",
     "gatsby-plugin-image": "^3.11.0",
+    "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sanity-image": "^0.13.4",
     "gatsby-plugin-sharp": "^5.11.0",
     "gatsby-plugin-simple-analytics": "^1.0.4",
