@@ -67,6 +67,7 @@ const Title = styled.h1`
   // Landscape View
   @media only screen and (max-height: 450px) {
     writing-mode: sideways-lr;
+    font-size: 4rem;
   }
 `
 
