@@ -53,14 +53,17 @@ const LogoContainer = styled.section`
 const Title = styled.h1`
   width: calc(80% - var(--img-left));
   margin: 0;
-  font-size: 7vh;
+  font-size: 8rem;
   font-weight: 300;
   text-transform: uppercase;
   align-self: center;
   line-height: 1;
   text-shadow: 0.1rem 0 0 var(--gray), -0.1rem 0 0 var(--gray),
     0 0.1rem 0 var(--gray), 0 -0.1rem 0 var(--gray);
-
+  // Mobile View
+  @media only screen and (max-width: 500px) {
+    font-size: 4rem;
+  }
   // Landscape View
   @media only screen and (max-height: 450px) {
     writing-mode: sideways-lr;
@@ -104,12 +107,16 @@ const Motto = styled.h2`
     padding: 2rem;
   }
   // Landscape view
+  @media only screen and (max-height: 750px) {
+    font-size: 2.5vh;
+  }
   @media only screen and (max-height: 650px) {
     display: none;
   }
 `
 
 const VideoContainer = styled.div`
+  width: 100%;
   height: calc(65dvh - 4rem);
   display: flex;
   justify-content: center;
