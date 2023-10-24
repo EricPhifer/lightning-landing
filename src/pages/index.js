@@ -1,3 +1,4 @@
+import { Script } from 'gatsby'
 import * as React from 'react'
 import { PiCaretRight } from 'react-icons/pi'
 import styled from 'styled-components'
@@ -332,6 +333,43 @@ export default function IndexPage() {
           </WhiteSpace>
         </LightBlock>
       </Main>
+      <Script>
+        {(function () {
+          function saLoadedLinkEvents() {
+            document
+              .querySelectorAll('a[data-sa-link-event]')
+              .forEach(element => {
+                const href = element.getAttribute('href')
+                const eventName = element.getAttribute('data-sa-link-event')
+                if (!href || !window.sa_event || !window.sa_loaded) return
+
+                element.addEventListener('click', event => {
+                  const target = element.getAttribute('target')
+                  if (target === '_blank') {
+                    event.preventDefault()
+                    window.sa_event(eventName, () => {
+                      window.location.href = href
+                    })
+                    return false
+                  }
+                  window.sa_event(eventName)
+                  return true
+                })
+              })
+          }
+
+          if (
+            document.readyState === 'ready' ||
+            document.readyState === 'complete'
+          ) {
+            saLoadedLinkEvents()
+          } else {
+            document.addEventListener('readystatechange', event => {
+              if (event.target.readyState === 'complete') saLoadedLinkEvents()
+            })
+          }
+        })()}
+      </Script>
     </>
   )
 }

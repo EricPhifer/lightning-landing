@@ -47,6 +47,7 @@ export default function Cta() {
           rel="noopener noreferrer"
           target="_blank"
           id="cta"
+          data-sa-link-event="cta-link"
           key={nodes.id}
         >
           {cta.cta} <PiCaretRightBold />

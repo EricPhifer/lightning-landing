@@ -247,6 +247,7 @@ export default function StoryHero() {
           <HeroesCall
             href="https://ericphifer.com/bundles/lightning/intake"
             rel="noopener noreferrer"
+            data-sa-link-event="hero-cta"
             target="_blank"
           >
             {node.herocall} <PiCaretRightBold />
