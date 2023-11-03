@@ -15,7 +15,6 @@ import Maintenance from '../components/Maintenance'
 import Problem from '../components/Problem'
 import Should from '../components/Should'
 import ShouldNot from '../components/ShouldNot'
-import useContact from '../utils/useContact'
 import useForm from '../utils/useForm'
 
 const HeroStyles = styled.div`
@@ -202,13 +201,7 @@ export default function IndexPage() {
     email: '',
     message: '',
   })
-  const { contact, error, loading, errMessage, submitContact } = useContact({
-    values,
-  })
-  console.log(contact, error, loading, submitContact)
-  if (errMessage) {
-    return <p>{errMessage}</p>
-  }
+
   return (
     <>
       <HeroStyles id="top">
