@@ -135,7 +135,7 @@ export default function Cost() {
             <Title>{node.title}</Title>
             <CostContainer>
               <CostAmt>
-                $3,497 <Break /> one-time
+                $3,997 <Break /> one-time
               </CostAmt>
               <Or>or</Or>
               <CostAmt>
